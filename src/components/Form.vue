@@ -3,16 +3,41 @@
         <el-form ref="form"
                  :model="form"
                  label-width="80px">
-            <el-form-item label="活动名称">
-                <el-input v-model="form.name"
-                          v-validate="'required|email'"
-                          :class="{'input': true, 'is-danger': errors.has('email') }"
-                          name="email"
+            <el-form-item label="手机号码">
+                <el-input v-model="phone"
+                          v-validate="'required|phone'"
+                          data-vv-as="您的信用卡信息"
+                          :class="{'input': true, 'is-danger': errors.has('phone') ,'is-success':!errors.has('phone')}"
+                          name="phone"
                           type="text"
                           placeholder="Email">
                 </el-input>
-                <span v-show="errors.has('email')"
-                      class="help is-danger">{{ errors.first('email') }}</span>
+                <span v-show="errors.has('phone')"
+                      class="help is-danger">{{ errors.first('phone') }}</span>
+            </el-form-item>
+            <el-form-item label="身份证号码">
+                <el-input v-model="idCard"
+                          v-validate="'required|idCard'"
+                          data-vv-as="您的信用卡信息"
+                          :class="{'input': true, 'is-danger': errors.has('idCard') }"
+                          name="idCard"
+                          type="text"
+                          placeholder="Email">
+                </el-input>
+                <span v-show="errors.has('idCard')"
+                      class="help is-danger">{{ errors.first('idCard') }}</span>
+            </el-form-item>
+            <el-form-item label="银行卡信息">
+                <el-input v-model="bankAccount"
+                          v-validate="'required|bankAccount'"
+                          data-vv-as="您的信用卡信息"
+                          :class="{'input': true, 'is-danger': errors.has('bankAccount') }"
+                          name="bankAccount"
+                          type="text"
+                          placeholder="Email">
+                </el-input>
+                <span v-show="errors.has('bankAccount')"
+                      class="help is-danger">{{ errors.first('bankAccount') }}</span>
             </el-form-item>
             <el-form-item label="活动区域">
                 <el-select v-model="form.region"
@@ -86,6 +111,9 @@
 export default {
     data() {
         return {
+            phone: '',
+            idCard: '',
+            bankAccount: '',
             form: {
                 name: '',
                 region: '',
@@ -100,7 +128,12 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log('submit!');
+            this.$validator.validateAll().then(() => {
+               alert('表单验证成功')
+            }).catch(() => {
+                // eslint-disable-next-line
+                // alert('Correct them errors!');
+            });
         }
     }
 }
