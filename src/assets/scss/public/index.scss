@@ -1,0 +1,20 @@
+.is-danger {
+  color: red;
+  border-color: red;
+  text-align: left;
+  .el-input__inner {
+    border-color: red!important;
+  }
+  .el-input__inner {
+    border-color: green!important;
+  }
+}
+
+.el-input__inner:focus {
+  border-color: green!important;
+}
+
+.form-validate {
+  width: 1200px;
+  margin: 0 auto;
+}

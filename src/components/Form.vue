@@ -101,12 +101,6 @@
         </el-form>
     </div>
 </template>
-<style>
-.form-validate {
-    width: 1200px;
-    margin: 0 auto;
-}
-</style>
 <script>
 export default {
     data() {
@@ -137,4 +131,5 @@ export default {
         }
     }
 }
+require('../assets/scss/public/index.scss')
 </script>
