@@ -2,7 +2,7 @@
  * @Author: wangzunian 
  * @Date: 2017-04-07 11:45:04 
  * @Last Modified by: wangzunian
- * @Last Modified time: 2017-04-11 15:34:28
+ * @Last Modified time: 2017-04-19 14:05:06
  */
 import Vue from 'vue'
 import App from './App'
@@ -11,6 +11,7 @@ import Vuex from 'vuex'
 import store from './store/index'
 import filter from './filter/filter'
 import validate from './validate/validate'
+
 /**  引入elementui*/
 import 'element-ui/lib/theme-default/index.css'
 import ElementUI from 'element-ui'
