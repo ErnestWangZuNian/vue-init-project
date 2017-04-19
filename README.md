@@ -4,6 +4,8 @@
 
 ## Build Setup
 ``` bash
+
+
   #  首先克隆下本项目  
   git clone https://github.com/ErnestWangZuNian/vue-init-project.git
 
@@ -20,9 +22,9 @@
   项目采用vue + vue-router + axios + vuex 技术栈，  集成了filter,集成了vuex,集成了elementui框架，封装了ajax请求,用于我们初始化项目是个不错的选择
 
   #  项目数据请求介绍
-  改项目已经设置好代理，不用担心跨域的问题,你们按照正确的请求方式就行，我已经封装好了请求，请求都写在fetch-api.js中
-  ![CSDN图标](http://imgtech.gmw.cn/attachement/jpg/site2/20111223/f04da22d7ba7105e1d7507.jpg "这是CSDN的图标")
+  改项目已经设置好代理，不用担心跨域的问题,你们按照正确的请求方式就行，我已经封装好了请求，请求都写在fetch-api.js
 
+  
 ```
 
 
