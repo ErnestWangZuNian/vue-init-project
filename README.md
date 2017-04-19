@@ -12,11 +12,14 @@
   #  安装淘宝镜像 --- 国内npm install太慢
   npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+  #  安装项目依赖模块
+  cnpm install 
+
   #  安装完毕后本地运行项目
-  npm run dev 
+  cnpm run dev 
 
   #  发布到生产环境 
-  npm  run build
+  cnpm  run build
 
   #  基础项目介绍
   项目采用vue + vue-router + axios + vuex 技术栈，  集成了filter,集成了vuex,集成了elementui框架，封装了ajax请求,用于我们初始化项目是个不错的选择
