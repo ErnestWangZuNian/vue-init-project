@@ -2,7 +2,7 @@
  * @Author: wangzunian 
  * @Date: 2017-04-10 10:16:22 
  * @Last Modified by: wangzunian
- * @Last Modified time: 2017-04-19 13:50:55
+ * @Last Modified time: 2017-04-26 15:57:47
  */
 import axios from 'axios'
 
@@ -77,7 +77,7 @@ export default {
    * @returns 
    */
   test(params) {
-    return fetchGet('/front/accountCenter/message/getMessageCount.json', params)
+    return fetchGet('', params)
   },
   /**
    *  测试post请求

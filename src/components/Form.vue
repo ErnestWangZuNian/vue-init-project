@@ -3,100 +3,43 @@
         <el-form ref="form"
                  :model="form"
                  label-width="80px">
-            <el-form-item label="手机号码">
-                <el-input v-model="phone"
-                          v-validate="'required|phone'"
-                          data-vv-as="您的信用卡信息"
-                          :class="{'input': true, 'is-danger': errors.has('phone') ,'is-success':!errors.has('phone')}"
-                          name="phone"
+            <el-form-item label="账号">
+                <el-input v-model="account"
+                          v-validate="'required'"
+                          data-vv-as="您的账号"
+                          name="account"
                           type="text"
-                          placeholder="Email">
+                          placeholder="请输入账号或者手机号码">
                 </el-input>
-                <span v-show="errors.has('phone')"
-                      class="help is-danger">{{ errors.first('phone') }}</span>
+                <span v-show="errors.has('account')"
+                      class="help is-danger">{{ errors.first('account') }}</span>
             </el-form-item>
-            <el-form-item label="身份证号码">
-                <el-input v-model="idCard"
-                          v-validate="'required|idCard'"
-                          data-vv-as="您的信用卡信息"
-                          :class="{'input': true, 'is-danger': errors.has('idCard') }"
-                          name="idCard"
+            <el-form-item label="密码">
+                <el-input v-model="password"
+                          v-validate="'required'"
+                          data-vv-as="您的密码"
+                          name="password"
+                          placeholder="请输入您的密码">
+                </el-input>
+                <span v-show="errors.has('password')"
+                      class="help is-danger">{{ errors.first('password') }}</span>
+            </el-form-item>
+            <el-form-item label="验证码"
+                          class="validate-input">
+                <el-input v-model="verifyCode"
+                          v-validate="'required'"
+                          data-vv-as="您的验证码"
+                          name="verifyCode"
                           type="text"
-                          placeholder="Email">
+                          placeholder='请输入验证码'>
                 </el-input>
-                <span v-show="errors.has('idCard')"
-                      class="help is-danger">{{ errors.first('idCard') }}</span>
-            </el-form-item>
-            <el-form-item label="银行卡信息">
-                <el-input v-model="bankAccount"
-                          v-validate="'required|bankAccount'"
-                          data-vv-as="您的信用卡信息"
-                          :class="{'input': true, 'is-danger': errors.has('bankAccount') }"
-                          name="bankAccount"
-                          type="text"
-                          placeholder="Email">
-                </el-input>
-                <span v-show="errors.has('bankAccount')"
-                      class="help is-danger">{{ errors.first('bankAccount') }}</span>
-            </el-form-item>
-            <el-form-item label="活动区域">
-                <el-select v-model="form.region"
-                           placeholder="请选择活动区域">
-                    <el-option label="区域一"
-                               value="shanghai">
-                    </el-option>
-                    <el-option label="区域二"
-                               value="beijing">
-                    </el-option>
-                </el-select>
-            </el-form-item>
-            <el-form-item label="活动时间">
-                <el-col :span="11">
-                    <el-date-picker type="date"
-                                    placeholder="选择日期"
-                                    v-model="form.date1"
-                                    style="width: 100%;"></el-date-picker>
-                </el-col>
-                <el-col class="line"
-                        :span="2">-</el-col>
-                <el-col :span="11">
-                    <el-time-picker type="fixed-time"
-                                    placeholder="选择时间"
-                                    v-model="form.date2"
-                                    style="width: 100%;"></el-time-picker>
-                </el-col>
-            </el-form-item>
-            <el-form-item label="即时配送">
-                <el-switch on-text=""
-                           off-text=""
-                           v-model="form.delivery"></el-switch>
-            </el-form-item>
-            <el-form-item label="活动性质">
-                <el-checkbox-group v-model="form.type">
-                    <el-checkbox label="美食/餐厅线上活动"
-                                 name="type"></el-checkbox>
-                    <el-checkbox label="地推活动"
-                                 name="type"></el-checkbox>
-                    <el-checkbox label="线下主题活动"
-                                 name="type"></el-checkbox>
-                    <el-checkbox label="单纯品牌曝光"
-                                 name="type"></el-checkbox>
-                </el-checkbox-group>
-            </el-form-item>
-            <el-form-item label="特殊资源">
-                <el-radio-group v-model="form.resource">
-                    <el-radio label="线上品牌商赞助"></el-radio>
-                    <el-radio label="线下场地免费"></el-radio>
-                </el-radio-group>
-            </el-form-item>
-            <el-form-item label="活动形式">
-                <el-input type="textarea"
-                          v-model="form.desc"></el-input>
+                <span class="verifyCode"><img :src="verifyImg" alt="" @click="getCode()"></span>
+                <span v-show="errors.has('verifyCode')"
+                      class="help is-danger">{{ errors.first('verifyCode') }}</span>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary"
-                           @click="onSubmit">立即创建</el-button>
-                <el-button>取消</el-button>
+                           @click="login">立即登录</el-button>
             </el-form-item>
         </el-form>
     </div>
@@ -105,30 +48,40 @@
 export default {
     data() {
         return {
-            phone: '',
-            idCard: '',
-            bankAccount: '',
-            form: {
-                name: '',
-                region: '',
-                date1: '',
-                date2: '',
-                delivery: false,
-                type: [],
-                resource: '',
-                desc: ''
-            }
+            verifyImg: '/common/getVerifyCode.json?',
+            account: '',
+            password: '',
+            verifyCode: '',
+            form: {}
         }
     },
     methods: {
-        onSubmit() {
+        login() {
             this.$validator.validateAll().then(() => {
-               alert('表单验证成功')
+                //  测试post请求
+                this.api.testPost({
+                    merchantId: 1,
+                    password: this.password,
+                    type: "supplier",
+                    userName: this.account,
+                    verifyCode: this.verifyCode
+                }).then(res => {
+                    if (res.success) {
+                        this.$router.push({
+                            path: '/index'
+                        })
+                    } else {
+                        alert(res.message)
+                    }
+                })
             }).catch(() => {
                 // eslint-disable-next-line
                 // alert('Correct them errors!');
             });
-        }
+        },
+        getCode() {
+            this.verifyImg = this.verifyImg + Math.random()
+        },
     }
 }
 require('../assets/scss/public/index.scss')
