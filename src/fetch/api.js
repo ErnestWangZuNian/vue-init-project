@@ -1,8 +1,8 @@
 /*
  * @Author: wangzunian 
  * @Date: 2017-04-10 10:16:22 
- * @Last Modified by: wangzunian
- * @Last Modified time: 2017-04-19 13:50:55
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-04-21 15:53:46
  */
 import axios from 'axios'
 
@@ -77,7 +77,7 @@ export default {
    * @returns 
    */
   test(params) {
-    return fetchGet('/front/accountCenter/message/getMessageCount.json', params)
+    return fetchGet('/front/accountCenter/myProject/getFinanceApplyList.json?', params)
   },
   /**
    *  测试post请求
@@ -85,7 +85,13 @@ export default {
    * @param {any} params 
    * @returns 
    */
-  testPost(params) {
+   login(params) {
     return fetchPost('/common/passwordLogin.json', params)
+  },
+
+  /**  测试请求 */
+
+  getCount(params) {
+     return fetchGet('/front/accountCenter/myProject/getFinanceApplyList.json?', params)
   }
 }

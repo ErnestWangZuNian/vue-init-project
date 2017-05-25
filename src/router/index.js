@@ -5,9 +5,8 @@ const Form = resolve => require(['../components/Form.vue'], resolve)
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
+  routes: [{
+      path: '/index',
       name: 'Hello',
       component: Hello
     },
@@ -16,5 +15,9 @@ export default new Router({
       name: 'Form',
       component: Form
     },
+    {
+      path: '',
+      redirect: '/index'
+    }
   ]
 })

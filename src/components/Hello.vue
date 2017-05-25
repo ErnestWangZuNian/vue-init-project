@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{person.name}}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org"
@@ -41,7 +41,7 @@
               <el-button type="success">成功按钮</el-button>
               <el-button type="warning">警告按钮</el-button>
               <el-button type="danger">危险按钮</el-button>
-              <el-button type="info">信息按钮</el-button>
+              <el-button type="info" @click="gotoLogin">去登录</el-button>
           </span>
     </div>
     <el-select v-model="value"
@@ -62,7 +62,12 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: '11hhh',
+      person: {
+        name: 'wangzunian',
+        sex:'man',
+        height: 'cm'
+      },
       money: '18784441144',
       options: [{
         value: '选项1',
@@ -90,6 +95,13 @@ export default {
     }).catch(error => {
       console.log(error)
     })
+    this.api.getCount({
+      pageNo: '1'
+    }).then(res => {
+      alert('11111')
+    }).catch(error => {
+      alert('cuol')
+    })
     //  测试post请求
     this.api.testPost({
       merchantId: 1,
@@ -104,6 +116,24 @@ export default {
       'test',
       'operator'
     ]),
+    render(){
+     return createElement("input",{
+       attrs:{name: 'test'},
+       style: {
+       color: 'red',
+       fontSize: '14px',
+       width: '100px'
+  },
+     })
+     .on('change',function(){
+       alert('wangzunian')
+     })
+    },
+    gotoLogin(){
+      this.$router.push({
+        path: '/form'
+      })
+    },
     addTest() {
       this.test()
     },
