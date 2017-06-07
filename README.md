@@ -9,7 +9,7 @@
   #  首先克隆下本项目  
   git clone https://github.com/ErnestWangZuNian/vue-init-project.git
 
-  #  安装淘宝镜像 --- 国内npm install太慢
+  #  安装淘宝镜像 --- 国内npm install太慢  如果已经安装了的直接下一步
   npm install -g cnpm --registry=https://registry.npm.taobao.org
 
   #  安装项目依赖模块
@@ -26,7 +26,9 @@
 
   #  项目数据请求介绍
   改项目已经设置好代理，不用担心跨域的问题,你们按照正确的请求方式就行，我已经封装好了请求，请求都写在fetch-api.js
-
+  
+  #  项目登录账号
+  账号 000077 密码 123456
   
 ```
 

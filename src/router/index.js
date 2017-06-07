@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const Hello = resolve => require(['../components/Hello.vue'], resolve)
 const Form = resolve => require(['../components/Form.vue'], resolve)
+const List = resolve => require(['../components/List.vue'], resolve)
 Vue.use(Router)
 
 export default new Router({
@@ -16,8 +17,13 @@ export default new Router({
       component: Form
     },
     {
+      path: '/list',
+      name: 'List',
+      component: List
+    },
+    {
       path: '',
-      redirect: '/index'
+      redirect: '/form'
     }
   ]
 })

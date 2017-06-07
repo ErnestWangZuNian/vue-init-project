@@ -1,8 +1,8 @@
 /*
  * @Author: wangzunian 
  * @Date: 2017-04-10 10:16:22 
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-04-21 15:53:46
+ * @Last Modified by: 2017-5-24
+ * @Last Modified time: 2017-06-07 22:03:32
  */
 import axios from 'axios'
 
@@ -91,7 +91,7 @@ export default {
 
   /**  测试请求 */
 
-  getCount(params) {
+  getFinaceList(params) {
      return fetchGet('/front/accountCenter/myProject/getFinanceApplyList.json?', params)
   }
 }
