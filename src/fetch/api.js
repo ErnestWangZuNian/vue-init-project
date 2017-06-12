@@ -2,7 +2,7 @@
  * @Author: wangzunian 
  * @Date: 2017-04-10 10:16:22 
  * @Last Modified by: wangzunian
- * @Last Modified time: 2017-04-26 15:57:47
+ * @Last Modified time: 2017-06-12 16:57:35
  */
 import axios from 'axios'
 
@@ -10,6 +10,7 @@ import axios from 'axios'
 /**  axios基础配置 */
 axios.defaults.timeout = 5000;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=UTF-8';
+
 
 
 /** axios封装请求get,post,put,delete方法 */
@@ -63,6 +64,7 @@ export function fetchDelete(url, params) {
         reject(err);
       })
       .catch((error) => {
+
         reject(error)
       })
   })

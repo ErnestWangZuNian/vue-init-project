@@ -1,3 +1,9 @@
+/*
+ * @Author: wangzunian 
+ * @Date: 2017-05-25 23:40:25 
+ * @Last Modified by: 2017-5-24
+ * @Last Modified time: 2017-05-25 23:42:18
+ */
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
