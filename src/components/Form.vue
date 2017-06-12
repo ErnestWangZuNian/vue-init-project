@@ -34,8 +34,6 @@
                 </span>
     
                 <span v-show="errors.has('verifyCode')" class="help is-danger">{{ errors.first('verifyCode') }}</span>
-    
-                >>>>>>> 2d99bb158a3e10b25a92e2953550dc36dc090f8a
             </el-form-item>
     
             <el-form-item>
@@ -138,8 +136,6 @@
             }
 
         }
-
->>>>>>> 2d99bb158a3e10b25a92e2953550dc36dc090f8a
     }
     
     require('../assets/scss/public/index.scss')
