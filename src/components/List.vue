@@ -92,8 +92,5 @@
        this.$router.push('./index')
       }
     }
-  
-     
-  
   }
 </script>

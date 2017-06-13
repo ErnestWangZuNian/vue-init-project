@@ -44,7 +44,6 @@
             </el-form-item>
     
         </el-form>
-    
     </div>
 </template>
 <script>
@@ -94,7 +93,7 @@
     
                             this.$router.push({
     
-                                path: '/index'
+                                path: '/list'
     
                             })
     
