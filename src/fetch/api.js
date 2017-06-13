@@ -2,7 +2,7 @@
  * @Author: wangzunian 
  * @Date: 2017-04-10 10:16:22 
  * @Last Modified by: 2017-5-24
- * @Last Modified time: 2017-06-07 22:03:32
+ * @Last Modified time: 2017-06-14 00:37:45
  */
 import axios from 'axios'
 
@@ -10,6 +10,7 @@ import axios from 'axios'
 /**  axios基础配置 */
 axios.defaults.timeout = 5000;
 axios.defaults.headers['Content-Type'] = 'application/json;charset=UTF-8';
+
 
 
 /** axios封装请求get,post,put,delete方法 */
@@ -63,6 +64,7 @@ export function fetchDelete(url, params) {
         reject(err);
       })
       .catch((error) => {
+
         reject(error)
       })
   })
@@ -71,27 +73,21 @@ export function fetchDelete(url, params) {
 /**  项目所有的请求写在这里并导出 */
 export default {
   /**
-   * 测试get请求
+   * 获取融资信息
    * 
    * @param {any} params 
    * @returns 
    */
-  test(params) {
-    return fetchGet('/front/accountCenter/myProject/getFinanceApplyList.json?', params)
+  getFinaceList(params) {
+    return fetchGet('/front/accountCenter/myProject/getFinanceApplyList.json', params)
   },
   /**
-   *  测试post请求
+   * 登录请求
    * 
    * @param {any} params 
    * @returns 
    */
-   login(params) {
+  login(params) {
     return fetchPost('/common/passwordLogin.json', params)
-  },
-
-  /**  测试请求 */
-
-  getFinaceList(params) {
-     return fetchGet('/front/accountCenter/myProject/getFinanceApplyList.json?', params)
   }
 }

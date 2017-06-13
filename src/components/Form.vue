@@ -29,10 +29,11 @@
     
                 </el-input>
     
-                <span class="verifyCode"><img :src="verifyImg" alt="" @click="getCode()"></span>
+                <span class="verifyCode">
+                    <img :src="verifyImg" alt="" @click="getCode()">
+                </span>
     
                 <span v-show="errors.has('verifyCode')" class="help is-danger">{{ errors.first('verifyCode') }}</span>
-    
             </el-form-item>
     
             <el-form-item>
@@ -48,93 +49,92 @@
 </template>
 <script>
     export default {
-    
+
         data() {
-    
+
             return {
-    
+
                 verifyImg: '/common/getVerifyCode.json?',
-    
+
                 account: '',
-    
+
                 password: '',
-    
+
                 verifyCode: '',
-    
+
                 form: {}
-    
+
             }
-    
+
         },
-    
+
         methods: {
-    
+
             login() {
-    
+
                 this.$validator.validateAll().then(() => {
-    
+
                     //  测试post请求
-    
+
                     this.api.login({
-    
+
                         merchantId: 1,
-    
+
                         password: this.password,
-    
+
                         type: "supplier",
-    
+
                         userName: this.account,
-    
+
                         verifyCode: this.verifyCode
-    
+
                     }).then(res => {
-    
+
                         if (res.success) {
-    
+
                             this.$router.push({
     
                                 path: '/list'
     
                             })
-    
+
                         } else {
-    
+
                             alert(res.message)
-    
+
                         }
-    
+
                     })
-    
+
                 }).catch(() => {
-    
+
                     // eslint-disable-next-line
-    
+
                     // alert('Correct them errors!');
-    
+
                 });
-    
+
             },
-    
-    
-    
+
+
+
             getCode() {
-    
+
                 this.verifyImg = this.verifyImg + Math.random()
-    
+
             },
-    
+
             gotoIndex() {
-    
+
                 this.$router.push({
-    
+
                     path: '/index'
-    
+
                 })
-    
+
             }
-    
+
         }
-    
     }
     
     require('../assets/scss/public/index.scss')
