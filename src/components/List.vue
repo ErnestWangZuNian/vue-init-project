@@ -84,7 +84,6 @@
       this.api.getFinaceList().then((res) => {
   
         this.tableData = res.data.result
-  
       })
     },
     methods: {

@@ -2,7 +2,7 @@
  * @Author: wangzunian 
  * @Date: 2017-04-10 10:16:22 
  * @Last Modified by: 2017-5-24
- * @Last Modified time: 2017-06-14 00:37:45
+ * @Last Modified time: 2017-06-15 21:23:28
  */
 import axios from 'axios'
 
@@ -37,7 +37,7 @@ export function fetchPost(url, params) {
       }, err => {
         reject(err);
       })
-      .catch((error) => {
+      .catch((error) => { 
         reject(error)
       })
   })
