@@ -1,38 +1,120 @@
 # vue-init-project
 
-> 'vue init project'
+项目初始化项目，集成 router,axios,iview,scss，路由懒加载，方便新手直接使用 不用任何操作
 
-## Build Setup
-``` bash
+> 目的：避免每次开始新建项目都有 Vue-cli，项目中已经封装了 api,集成了 router，iview, scss,方便项目使用
 
+## 启动步骤
 
-  #  首先克隆下本项目  
-  git clone https://github.com/ErnestWangZuNian/vue-init-project.git
+```bash
+# 安装依赖包
+npm install
 
-  #  安装淘宝镜像 --- 国内npm install太慢  如果已经安装了的直接下一步
-  npm install -g cnpm --registry=https://registry.npm.taobao.org
+# 启动开发服务
+npm run dev 或者 npm run start
 
-  #  安装项目依赖模块
-  cnpm install 
+# 生成打包文件
+npm run build
 
-  #  安装完毕后本地运行项目
-  cnpm run dev 
-
-  #  发布到生产环境 
-  cnpm  run build
-
-  #  基础项目介绍
-  项目采用vue + vue-router + axios + vuex 技术栈，  集成了filter,集成了vuex,集成了elementui框架，封装了ajax请求,用于我们初始化项目是个不错的选择
-
-  #  项目数据请求介绍
-  改项目已经设置好代理，不用担心跨域的问题,你们按照正确的请求方式就行，我已经封装好了请求，请求都写在fetch-api.js
-  
-  #  项目登录账号
-  账号 000077 密码 123456
-  
+# 生成打包图形化预览
+npm run build --report
 ```
 
+## 项目结构
 
+```bash
+src
+   api(用于项目的请求初始化)
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+   assets(静态资源公共的css images)
 
+   components(公共组件)
+
+   pages(页面)
+
+      demo(具体页面)
+
+        api.actions.js(页面的请求地址集合)
+
+        index.vue(页面的结构和逻辑)
+
+        style.scss(页面的样式)
+
+   router(项目路由)
+
+   app.vue(启动根目录)
+
+   main.js(启动入口)
+```
+
+## api 的初始化
+
+> 实例化 api Api 的方法和 axios 保持一致 详情见文档<https://github.com/ErnestWangZuNian/project-request-api>
+
+```js
+import Api from "wzn-api";
+let api = new Api();
+
+// 添加请求拦截器
+api.interceptors.request.use(
+  config => {
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+);
+
+// 添加响应拦截器
+api.interceptors.response.use(
+  response => {
+    return response.data;
+  },
+  error => {
+    // 对响应错误做点什么
+    return Promise.reject(error);
+  }
+);
+export default api;
+```
+
+### 页面调用
+
+```js
+<template>
+  <div>
+    <Layout>
+      <Row>
+        <Row class="title"> 这是通过请求得到的数据</Row>
+        <Row class="mb10" v-for="(item,index) in list.data" :key="index">
+          {{item.name}}
+        </Row>
+      </Row>
+    </Layout>
+  </div>
+</template>
+<script>
+import Layout from "@/components/layout";
+import url from "./api.actions";
+export default {
+  name: "demo",
+  components: {
+    Layout
+  },
+  data() {
+    return {
+      list: {}
+    };
+  },
+  created() {
+    Api.get(url.list).then(res => {
+      this.list = res.data;
+      console.log(this.list);
+    });
+  }
+};
+</script>
+<style lang="scss" scoped>
+@import "./style.scss";
+</style>
+```
