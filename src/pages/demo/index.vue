@@ -25,7 +25,15 @@
       <CommodityList :requestUrl="requestUrl" />
 
     </van-cell-group>
-
+    <Layout>
+      <Row>
+        <Row class="title">   这是通过请求得到的数据</Row>
+     
+        <!-- <Row class="mb10" v-for="(item,index) in list.data" :key="index">
+          {{item.name}}
+        </Row> -->
+      </Row>
+    </Layout>
   </div>
 </template>
 
