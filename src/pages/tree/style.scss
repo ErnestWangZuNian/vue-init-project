@@ -1,0 +1,41 @@
+.about-container {
+  width: 800px;
+  margin: 0 auto;
+  .rect {
+    width: 400px;
+    height: 90px;
+    border: 1px solid green;
+    position: relative;
+    .flag {
+      position: absolute;
+      top: 100%;
+      left: -41px;
+      height: 1px;
+      border-top: 1px solid red;
+      width: 40px;
+    }
+    .text {
+      position: absolute;
+      top: 70%;
+      left: -41px;
+      width: 40px;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  .parent {
+    position: relative;
+    padding: 20px 0 0 40px;
+  }
+  .parent:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 100%;
+    border-left: 1px solid red;
+  }
+  .list {}
+}

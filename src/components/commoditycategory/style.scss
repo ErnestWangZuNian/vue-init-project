@@ -1,0 +1,12 @@
+.commodity-category-container {
+  font-size: 16px;
+  .category-list {
+    .category-list-container {
+      overflow: hidden;
+      height: 8rem;
+      .left {
+        background: #f3f3f3;
+      }
+    }
+  }
+}

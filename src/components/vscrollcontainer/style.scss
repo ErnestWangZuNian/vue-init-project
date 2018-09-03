@@ -1,0 +1,16 @@
+.v-scroll-container {
+  overflow: hidden;
+  overflow-y: scroll;
+  font-size: 14px;
+  .children-list {
+    background: #f3f3f3;
+    padding: .2rem;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+  }
+  .children-list-active {
+    background: #fff;
+    color: red;
+  }
+}

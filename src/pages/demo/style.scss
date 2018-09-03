@@ -1,7 +1,20 @@
-.mb10 {
-  margin-bottom: 20px;
+.user-poster {
+  width: 7.5rem;
+  height: 4rem;
+  display: block;
 }
-.title {
-  margin-bottom: 20px;
-  color: red;
+
+.user-group {
+  margin-bottom: .3rem;
+}
+
+.user-links {
+  padding: 15px 0;
+  font-size: 12px;
+  text-align: center;
+  background-color: #fff;
+  .van-icon {
+    display: block;
+    font-size: 24px;
+  }
 }

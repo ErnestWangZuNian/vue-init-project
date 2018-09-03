@@ -3,19 +3,34 @@
 import Vue from "vue";
 import App from "./App";
 import router from "./router";
-import iView from "iview";
 import Api from "@/api";
-import "iview/dist/styles/iview.css";
-import "@/assets/style/index.scss";
-Vue.use(iView);
+import filters from './filter/index'
+import Vant from 'vant';
+import 'vant/lib/vant-css/index.css';
+import "../src/assets/style/index.scss"
+import flexible from "./utils/flexible";
+import utils from "./utils/index";
+const loadImg = require('../static/imgs/loading.png')
+import {
+  Lazyload
+} from 'vant';
+flexible(window);
+Vue.use(Vant);
+Vue.use(Lazyload, {
+  loading: loadImg
+});
+
 
 Vue.config.productionTip = false;
 global.Api = Api;
+global.utils = utils;
 
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: "<App/>"
 });

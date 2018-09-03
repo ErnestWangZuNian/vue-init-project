@@ -1,0 +1,73 @@
+.ivu-form {
+  .ivu-form-item-label {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+    padding: 10px 12px 10px 0;
+    box-sizing: border-box;
+  }
+  .ivu-form-label-left .ivu-form-item-label {
+    text-align: left;
+  }
+  .ivu-form-label-top .ivu-form-item-label {
+    float: none;
+    display: inline-block;
+    padding: 0 0 10px 0;
+  }
+  .ivu-form-inline {
+    .ivu-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+  }
+}
+
+.ivu-form-item {
+  margin-bottom: 24px;
+  vertical-align: top;
+  .ivu-form-item:after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  .ivu-form-item-content {
+    position: relative;
+    line-height: 32px;
+    font-size: 12px;
+  }
+  & & {
+    margin-bottom: 0;
+  }
+  & & &-content {
+    margin-left: 0 !important;
+  }
+  .ivu-form-item-error-tip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    line-height: 1;
+    padding-top: 6px;
+    color: red;
+  }
+  .ivu-form-item-required {
+    .ivu-form-item-label:before {
+      content: '*';
+      display: inline-block;
+      margin-right: 4px;
+      line-height: 1;
+      font-family: SimSun;
+      font-size: 14px;
+      color: red;
+    }
+  }
+  .ivu-form-item-error {
+    // todo
+  }
+}

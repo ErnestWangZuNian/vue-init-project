@@ -24,14 +24,17 @@ td {
   margin: 0;
   padding: 0;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 fieldset,
 img {
   border: 0;
 }
+
 address,
 caption,
 cite,
@@ -44,14 +47,17 @@ var {
   font-style: normal;
   font-weight: normal;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 caption,
 th {
   text-align: left;
 }
+
 h1,
 h2,
 h3,
@@ -61,11 +67,29 @@ h6 {
   font-size: 100%;
   font-weight: normal;
 }
+
 q:before,
 q:after {
   content: "";
 }
+
 abbr,
 acronym {
   border: 0;
+}
+
+body {
+  background: #f5f5f5;
+  font-size: 18px;
+  color: #999;
+}
+
+//   禁用滚动条
+::-webkit-scrollbar {
+  display: none;
+  /*隐藏滚轮*/
+}
+
+.van-tabs__wrap--scrollable .van-tab {
+  flex: 0 0 25% !important;
 }

@@ -11,8 +11,10 @@ module.exports = {
     assetsPublicPath: "/",
     proxyTable: {
       "/": {
-        target: "http://book.zhongxiaoyu.cn",
-        pathRewrite: { "^/": "" }
+        target: "http://merchants.mmingw.com",
+        pathRewrite: {
+          "^/": ""
+        }
       }
     },
 
