@@ -3,8 +3,8 @@
     <van-row class="login-container">
       <van-row class="login-content">
         <Form ref="formInline" :model="formInline" :rules="ruleInline">
-          <FormItem prop="user">
-            <van-field v-model="formInline.user" left-icon="contact" placeholder="请输入用户名" @input="onInput" />
+          <FormItem prop="username">
+            <van-field v-model="formInline.username" left-icon="contact" placeholder="请输入用户名" @input="onInput" />
           </FormItem>
           <FormItem prop="password">
             <van-field v-model="formInline.password" left-icon="contact" placeholder="请输入用户名" @input="onInput" />
@@ -37,7 +37,7 @@
           password: ''
         },
         ruleInline: {
-          user: [{
+          username: [{
             required: true,
             message: '请输入用户名'
           }],
