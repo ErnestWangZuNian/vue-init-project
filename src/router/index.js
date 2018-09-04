@@ -1,20 +1,20 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Demo from "@/pages/demo";
-import Tree from "@/pages/tree";
-import DemoOne from "@/pages/demoone";
+import Login from "@/pages/login";
 Vue.use(Router);
 
 export default new Router({
-  routes: [{
+  routes: [
+    {
       path: "/",
       name: "Demo",
       component: Demo
     },
     {
-      path: "/tree",
-      name: "Tree",
-      component: Tree
+      path: "/login",
+      name: "Login",
+      component: Login
     }
   ]
 });

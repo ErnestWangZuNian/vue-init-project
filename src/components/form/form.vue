@@ -4,8 +4,6 @@
   </form>
 </template>
 <script>
-  const prefixCls = 'ivu-form';
-
   function oneOf(value, validList) {
     for (let i = 0; i < validList.length; i++) {
       if (value === validList[i]) {
@@ -14,6 +12,7 @@
     }
     return false;
   }
+  const prefixCls = 'ivu-form';
   export default {
     name: 'iForm',
     props: {
@@ -118,9 +117,4 @@
       });
     }
   };
-
 </script>
-<style lang="scss" scoped>
-  @import "./style.scss";
-
-</style>

@@ -1,0 +1,26 @@
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background: url("../../assets/images/loginbg.jpg") no-repeat;
+  background-size: cover;
+  background-color: none;
+  height: 100vh;
+  .van-cell {
+    background-color: transparent;
+    color: #cc9933;
+    border: none;
+    border-bottom: 1px solid #cc9933;
+  }
+  .login-content {
+    padding: 60px 0px;
+    width: 90%;
+    .van-button--default {
+      color: #fff;
+      border: 1px solid #cc9933;
+      background-color: #cc9933;
+      border-radius: 20px;
+    }
+  }
+}

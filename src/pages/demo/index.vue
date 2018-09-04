@@ -1,9 +1,9 @@
 <template>
   <div>
     <van-cell-group class="user-group">
-      <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
-        <FormItem prop="user">
-          <input v-model="formInline.user" label="用户名" placeholder="请输入用户名" />
+      <Form ref="formInline" :model="formInline" :rules="ruleInline">
+        <FormItem prop="user" ref="formInlineItem" >
+          <van-field v-model="formInline.user" label="用户名" placeholder="请输入用户名" @input="onInput" />
         </FormItem>
         <FormItem>
           <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
@@ -23,20 +23,9 @@
       </van-row>
       <CommodityCategoryList/>
       <CommodityList :requestUrl="requestUrl" />
-
     </van-cell-group>
-    <Layout>
-      <Row>
-        <Row class="title">   这是通过请求得到的数据</Row>
-     
-        <!-- <Row class="mb10" v-for="(item,index) in list.data" :key="index">
-          {{item.name}}
-        </Row> -->
-      </Row>
-    </Layout>
   </div>
 </template>
-
 <script>
   import {
     Row,
@@ -47,6 +36,7 @@
     CellGroup
   } from "vant";
   import IconText from "@/components/icontext";
+  import Emitter from '../../mixins/emitter';
   import CommodityList from "@/components/commoditylist";
   import CommodityCategoryList from "@/components/commoditycategory";
   import Form from "@/components/form";
@@ -67,6 +57,7 @@
       Form,
       FormItem
     },
+    mixins: [Emitter],
     mounted() {},
     data: () => {
       return {
@@ -81,8 +72,7 @@
         ruleInline: {
           user: [{
             required: true,
-            message: 'Please fill in the user name',
-            trigger: 'blur'
+            message: '请输入用户名'
           }],
           password: [{
               required: true,
@@ -100,8 +90,12 @@
       };
     },
     methods: {
+      onInput(value) {
+        // this.$watch('rules');
+        this.dispatch("FormItem", "on-form-change", value)
+      },
       handleSubmit(name) {
-        this.$refs[name].validate((valid) => {
+        this.$refs[name].validate((valid, err) => {
           if (valid) {
             console.log(this.formInline, '1111')
           } else {
@@ -114,7 +108,6 @@
           page: 1,
           pageSize: 20
         });
-        console.log(res.body, '1111')
         this.list = this.list.concat(res.body);
         this.loading = false;
         ++currentPage;
@@ -125,9 +118,7 @@
       }
     }
   };
-
 </script>
 <style lang="scss" scoped>
   @import "./style.scss";
-
 </style>

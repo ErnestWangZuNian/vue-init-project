@@ -12,9 +12,8 @@ module.exports = {
     proxyTable: {
       "/": {
         target: "http://merchants.mmingw.com",
-        pathRewrite: {
-          "^/": ""
-        }
+        changeOrigin: true,
+        pathRewrite: { "^/": "" }
       }
     },
 

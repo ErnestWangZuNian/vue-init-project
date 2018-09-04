@@ -68,7 +68,6 @@
             this.finished = true;
           }
         } else {
-          console.log(2222)
           this.finished = true;
         }
         return this.list;

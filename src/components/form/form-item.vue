@@ -1,8 +1,6 @@
 <template>
   <div :class="classes">
-    <label :class="[prefixCls + '-label']" :for="labelFor" :style="labelStyles" v-if="label || $slots.label">
-      <slot name="label">{{ label }}</slot>
-    </label>
+    <label :class="[prefixCls + '-label']" :for="labelFor" :style="labelStyles" v-if="label || $slots.label"><slot name="label">{{ label }}</slot></label>
     <div :class="[prefixCls + '-content']" :style="contentStyles">
       <slot></slot>
       <transition name="fade">
@@ -15,7 +13,6 @@
   import AsyncValidator from 'async-validator';
   import Emitter from '../../mixins/emitter';
   const prefixCls = 'ivu-form-item';
-
   function getPropByPath(obj, path) {
     let tempObj = obj;
     path = path.replace(/\[(\w+)\]/g, '.$1');
@@ -88,6 +85,10 @@
       },
       validateStatus(val) {
         this.validateState = val;
+      },
+      rules() {
+        console.log('11')
+        this.setRules();
       }
     },
     inject: ['form'],
@@ -125,22 +126,34 @@
       },
       labelStyles() {
         let style = {};
-        const labelWidth = this.labelWidth || this.form.labelWidth;
-        if (labelWidth) {
+        const labelWidth = this.labelWidth === 0 || this.labelWidth ? this.labelWidth : this.form.labelWidth;
+        if (labelWidth || labelWidth === 0) {
           style.width = `${labelWidth}px`;
         }
         return style;
       },
       contentStyles() {
         let style = {};
-        const labelWidth = this.labelWidth || this.form.labelWidth;
-        if (labelWidth) {
+        const labelWidth = this.labelWidth === 0 || this.labelWidth ? this.labelWidth : this.form.labelWidth;
+        if (labelWidth || labelWidth === 0) {
           style.marginLeft = `${labelWidth}px`;
         }
         return style;
       }
     },
     methods: {
+      setRules() {
+        let rules = this.getRules();
+        if (rules.length) {
+          rules.every((rule) => {
+            this.isRequired = rule.required;
+          });
+          this.$off('on-form-blur', this.onFieldBlur);
+          this.$off('on-form-change', this.onFieldChange);
+          this.$on('on-form-blur', this.onFieldBlur);
+          this.$on('on-form-change', this.onFieldChange);
+        }
+      },
       getRules() {
         let formRules = this.form.rules;
         const selfRules = this.rules;
@@ -151,7 +164,7 @@
         const rules = this.getRules();
         return rules.filter(rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1);
       },
-      validate(trigger, callback = function () {}) {
+      validate(trigger, callback = function() {}) {
         const rules = this.getFilteredRule(trigger);
         if (!rules || rules.length === 0) {
           callback();
@@ -214,29 +227,14 @@
         Object.defineProperty(this, 'initialValue', {
           value: this.fieldValue
         });
-        let rules = this.getRules();
-        if (rules.length) {
-          rules.every(rule => {
-            if (rule.required) {
-              this.isRequired = true;
-              return false;
-            }
-          });
-          this.$on('on-form-blur', this.onFieldBlur);
-          this.$on('on-form-change', this.onFieldChange);
-          this.$on("blur", () => {
-            alert('WWWW')
-          })
-        }
+        this.setRules();
       }
     },
     beforeDestroy() {
       this.dispatch('iForm', 'on-form-item-remove', this);
     }
   };
-
 </script>
 <style lang="scss" scoped>
   @import "./style.scss";
-
 </style>
