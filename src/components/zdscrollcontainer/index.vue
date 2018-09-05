@@ -1,5 +1,5 @@
 <template>
-  <div class="v-scroll-container" :style="{height:height+'rem'}">
+  <div class="v-scroll-container" :style="{height:height}">
     <div v-if="list" :class="item.active ? 'children-list children-list-active' : 'children-list' " v-for="item in list" :key="item.id"
       @click="changeChildren(item)">{{item.name}}</div>
     <slot v-if="list === undefined   ||  !list"></slot>
@@ -11,10 +11,11 @@
     props: {
       list: {
         type: Array,
-      },
-      height: {
-        type: [Number, String],
-        default: 8
+      }
+    },
+    data(){
+      return {
+        height: this.height || `${Utils.getContentHeight()}px`
       }
     },
     methods: {

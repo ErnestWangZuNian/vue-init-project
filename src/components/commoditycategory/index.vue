@@ -25,7 +25,7 @@
     Col
   } from "vant";
   import url from "./api.actions.js";
-  import VScrollContainer from "../vscrollcontainer";
+  import VScrollContainer from "../zdscrollcontainer";
   import CommodityList from "../commoditylist";
   export default {
     name: "commoditycategorylist",
