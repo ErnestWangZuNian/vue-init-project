@@ -2,10 +2,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 40px 20px;
-  background: url("../../assets/images/loginbg.jpg") no-repeat;
+  padding: 80px 0px;
+  background-image: url("../../assets/images/loginbg.jpg");
   background-size: cover;
-  background-color: none;
+  background-position: 50%;
   height: 100vh;
   .van-cell {
     background-color: transparent;
@@ -14,13 +14,6 @@
     border-bottom: 1px solid #cc9933;
   }
   .login-content {
-    padding: 60px 0px;
-    width: 90%;
-    .van-button--default {
-      color: #fff;
-      border: 1px solid #cc9933;
-      background-color: #cc9933;
-      border-radius: 20px;
-    }
+    width: 80%;
   }
 }

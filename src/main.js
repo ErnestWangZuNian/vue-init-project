@@ -9,7 +9,7 @@ import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
 import "../src/assets/style/index.scss"
 import flexible from "./utils/flexible";
-import utils from "./utils/index";
+import Utils from "./utils/index";
 const loadImg = require('../static/imgs/loading.png')
 import {
   Lazyload
@@ -23,7 +23,7 @@ Vue.use(Lazyload, {
 
 Vue.config.productionTip = false;
 global.Api = Api;
-global.utils = utils;
+global.Utils = Utils;
 
 /* eslint-disable no-new */
 new Vue({

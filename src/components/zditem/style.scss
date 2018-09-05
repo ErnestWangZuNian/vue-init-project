@@ -1,0 +1,24 @@
+.zd-item-container {
+  background: #fff;
+  min-height: 2rem;
+  color: #666;
+  margin-bottom: 0.2rem;
+  .title {
+    font-size: 14px;
+    color: #333;
+    padding: 0.1rem 0.2rem;
+    border-bottom: 1px solid #ddd;
+    .right {
+      text-align: right;
+    }
+  }
+  .content{
+    padding:0.1rem 0.2rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .footer{
+   display: flex;
+   justify-content: flex-end;
+   padding:0.1rem 0.2rem;
+  }
+}

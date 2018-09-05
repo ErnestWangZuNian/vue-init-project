@@ -1,10 +1,26 @@
 <template>
-  <van-button v-bind="$attrs" v-on="$listeners"></van-button>
+  <div :class="isBorder ? 'component-icon-text border-right':'component-icon-text'">
+    <van-icon :name="name" :color="color" />
+    <div class="icon-text" :style="{color}">{{text}}</div>
+  </div>
 </template>
 <script>
   export default {
-    name: "button",
+    name: "icontext",
     props: {
+      color: {
+        type: String
+      },
+      name: {
+        type: String
+      },
+      isBorder: {
+        type: Boolean,
+        default: false
+      },
+      text: {
+        type: String
+      }
     }
   };
 </script>
