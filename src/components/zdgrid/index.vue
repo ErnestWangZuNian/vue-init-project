@@ -26,11 +26,11 @@
       },
       labelSpan: {
         type: [String, Number],
-        default: 11
+        default: 10
       },
       valueSpan: {
         type: [String, Number],
-        default: 13
+        default: 14
       }
     },
     data() {

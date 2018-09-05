@@ -6,8 +6,8 @@
         <ZdItem :title="item.name" v-for="(item,index) in merfloorList" :key="item.id">
           <van-row slot="content">
             <ZdGrid :data="[
-                        [{label:'商户账号',value:item.name_sn},{label:'商户冷却时间',value:item.cdtime}],
-                        [{label:'商户日限额',value:item.daylimits},{label:'费率',value:item.rate}],
+                        [{label:'账号',value:item.name_sn},{label:'冷却时间',value:item.cdtime}],
+                        [{label:'日限额',value:item.daylimits},{label:'费率',value:item.rate}],
                         [{label:'状态',value:item.status ? '已上线' : '已下线'},{label:'是否禁用',value:item.audit ? '已禁用' : '已启用'}]
                         ]">
             </ZdGrid>
