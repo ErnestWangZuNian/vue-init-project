@@ -4,7 +4,7 @@
   <van-row class="zd-item-container">
     <van-row class="title">
       <van-col span="20">{{title}}</van-col>
-      <van-col span="4" class="right">
+      <van-col span="4" class="right" @click="onRight" v-if="titleRight">
         <van-icon name="delete" />
       </van-col>
     </van-row>
@@ -22,11 +22,19 @@
     props: {
       title: {
         type: String
+      },
+      titleRight: {
+        default: false
       }
     },
     data() {
       return {
         className: `van-button--${this.type}`
+      }
+    },
+    method: {
+      onRight() {
+        this.$emit("on-right");
       }
     }
   };

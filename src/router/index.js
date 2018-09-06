@@ -4,6 +4,7 @@ import Demo from "@/pages/demo";
 import Login from "@/pages/login";
 import Home from "@/pages/home";
 import Merchant from "@/pages/merchant";
+import MerchantAddEdit from "@/pages/merchant/addedit";
 Vue.use(Router);
 
 const router = new Router({
@@ -27,6 +28,11 @@ const router = new Router({
       path: "/merchant",
       name: "Merchant",
       component: Merchant
+    },
+    {
+      path: "/merchant/add-edit/:status",
+      name: "MerchantAddEdit",
+      component: MerchantAddEdit
     }
   ]
 });

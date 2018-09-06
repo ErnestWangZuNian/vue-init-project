@@ -43,7 +43,7 @@
           {
             name: '商户操作',
             icon: "shop",
-            info: 20,
+            info: null,
             dot: false,
             path: "/merchant"
           }

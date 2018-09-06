@@ -1,5 +1,12 @@
-.merchant-container{
-  .merchant-list{
+.merchant-container {
+  .merchant-list {
     margin-bottom: 0.1rem;
+  }
+}
+.merchant-add-container {
+  background: #fff;
+  min-height: 100vh;
+  .add-content {
+    padding: 0 20px;
   }
 }

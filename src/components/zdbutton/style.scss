@@ -1,10 +1,15 @@
-.van-button--yellow{
+.van-button {
+  border-radius: 10px;
+  line-height: 24px;
+  height: 26px;
+}
+.van-button--yellow {
   color: #fff;
   border: 1px solid #cc9933;
   background-color: #cc9933;
 }
-.van-button {
-  border-radius: 0.2rem;
-  line-height: 0.40rem;
-  height: 0.44rem;
+.van-button--large {
+  border-radius: 12px;
+  line-height: 34px;
+  height: 36px;
 }

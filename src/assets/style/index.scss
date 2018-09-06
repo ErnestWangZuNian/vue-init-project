@@ -90,12 +90,21 @@ body {
   /*隐藏滚轮*/
 }
 
+//  样式覆盖
 .van-tabs__wrap--scrollable .van-tab {
   flex: 0 0 25% !important;
 }
+.van-nav-bar__text{
+  color: #cc9933;
+}
+.van-nav-bar .van-icon {
+  color: #cc9933;
+}
+
 #app {
   width: 7.5rem;
   font-size: 12px;
+  min-height: 100vh;
 }
 .ml10 {
   margin-left: 0.1rem;
