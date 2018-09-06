@@ -18,6 +18,9 @@ let Utils = {
       : null;
     return user;
   },
+  getRandom(){
+    return Math.random().toString(36).substr(2);
+  },
   getUserId: () => {
     let id = Utils.getUserInfo() ? Utils.getUserInfo().id : null;
   }
