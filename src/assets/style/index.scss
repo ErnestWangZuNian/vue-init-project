@@ -94,11 +94,16 @@ body {
 .van-tabs__wrap--scrollable .van-tab {
   flex: 0 0 25% !important;
 }
-.van-nav-bar__text{
+.van-nav-bar__text {
   color: #cc9933;
 }
 .van-nav-bar .van-icon {
   color: #cc9933;
+}
+.van-cell__value {
+  span {
+    color: #cc9933;
+  }
 }
 
 #app {
@@ -107,5 +112,8 @@ body {
   min-height: 100vh;
 }
 .ml10 {
-  margin-left: 0.1rem;
+  margin-left: 10px;
+}
+.mb20 {
+  margin-bottom: 20px;
 }

@@ -18,24 +18,24 @@
     },
     data() {
       return {
-        active: 0,
+        active: 3,
         menus: [{
             name: '首页统计',
-            icon: "shop",
-            info: 20,
+            icon: "home",
+            info: null,
             dot: false,
             path: "/"
           },
           {
             name: '订单查看',
-            icon: "shop",
+            icon: "pending-orders",
             info: null,
-            dot: true,
+            dot: false,
             path: "/order"
           },
           {
             name: '额度明细',
-            icon: "shop",
+            icon: "pending-payment",
             info: null,
             dot: false,
             path: "/quota"
@@ -50,7 +50,18 @@
         ]
       }
     },
+    mounted() {
+      this.init();
+    },
     methods: {
+      init() {
+        let currentPath = this.$route.path;
+        this.menus.forEach((item, index) => {
+          if (currentPath.indexOf(item.path) > -1) {
+            this.active = index;
+          }
+        })
+      },
       gotoPath(item) {
         this.$router.push(item.path)
       }

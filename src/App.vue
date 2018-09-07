@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  destroyed() {
+    Utils.storage.clear();
+  },
 };
 </script>
 
