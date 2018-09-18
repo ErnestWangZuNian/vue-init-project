@@ -12,6 +12,7 @@
     }
     return false;
   }
+  
   const prefixCls = 'ivu-form';
   export default {
     name: 'iForm',

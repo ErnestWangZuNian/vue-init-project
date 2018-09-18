@@ -23,6 +23,7 @@ let Utils = {
   },
   getUserId: () => {
     let id = Utils.getUserInfo() ? Utils.getUserInfo().id : null;
+    return id
   }
 };
 export default Utils;

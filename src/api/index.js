@@ -3,11 +3,11 @@ import Vue from "vue";
 import Utils from "../utils";
 import { Toast } from "vant";
 let api = new Api();
-let token = Utils.getToken();
 Vue.use(Toast);
 // 添加请求拦截器
 api.interceptors.request.use(
   config => {
+    let token = Utils.getToken();
     if (token) {
       config.headers.token = token;
       config.headers.common["Content-Type"] = "application/json;charset=UTF-8";

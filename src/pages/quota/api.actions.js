@@ -1,3 +1,3 @@
 export default {
-  merfloorList: "/admin/Merfloor/merfloorList",
+  eduList: "/admin/Edu/eduList",
 };

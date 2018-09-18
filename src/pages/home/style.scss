@@ -1,4 +1,20 @@
 .home-container {
   height: 100vh;
   background: #fff;
+  .info-container {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #cc9933;
+    .list {
+      display: flex;
+      justify-content: center;
+    }
+    .title {
+      color: #f44;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+  }
 }

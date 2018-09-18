@@ -1,4 +1,5 @@
 import Vue from "vue";
+import Demo from "@/pages/demo";
 import Router from "vue-router";
 import Login from "@/pages/login";
 import Home from "@/pages/home";
@@ -10,6 +11,11 @@ Vue.use(Router);
 
 const router = new Router({
   routes: [
+    {
+      path: "/demo",
+      name: "Demo",
+      component: Demo
+    },
     {
       path: "/login",
       name: "Login",

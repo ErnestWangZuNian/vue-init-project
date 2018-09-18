@@ -4,10 +4,15 @@
       <van-row class="login-content">
         <Form ref="userform" :model="model" :rules="ruleInline">
           <FormItem prop="username">
-            <van-field v-model="model.username" left-icon="contact" placeholder="请输入用户名" @input="onInput" />
+            <van-field v-model="model.username" left-icon="contact" placeholder="请输入用户名" />
           </FormItem>
           <FormItem prop="password">
-            <van-field v-model="model.password" type="password" left-icon="contact" placeholder="请输入密码" @input="onInput" />
+            <van-field v-model="model.password" type="password" left-icon="clock" placeholder="请输入密码" />
+          </FormItem>
+          <FormItem prop="google_code">
+            <van-field v-model="model.google_code" type="text" left-icon="more-o" placeholder="请输入谷歌验证码">
+              <ZdButton slot="button" type="yellow" @click="lookGoogleCode" :disabled="model.username===''"><span class="text">查看谷歌验证码</span></ZdButton>
+            </van-field>
           </FormItem>
         </Form>
         <ZdButton size="large" type="yellow" @click="login">登录</ZdButton>
@@ -33,8 +38,9 @@
     data: () => {
       return {
         model: {
-          user: '',
-          password: ''
+          username: '',
+          password: '',
+          google_code: ''
         },
         ruleInline: {
           username: [{
@@ -44,15 +50,15 @@
           password: [{
             required: true,
             message: '请输入密码'
+          }],
+          google_code: [{
+            required: true,
+            message: '请输入谷歌验证码'
           }]
         }
       };
     },
     methods: {
-      onInput(value) {
-        // this.$watch('rules');
-        this.dispatch("FormItem", "on-form-change", value)
-      },
       login(name) {
         this.$refs[
           "userform"
@@ -63,6 +69,23 @@
             this.$router.push('/');
           }
         })
+      },
+      async lookGoogleCode() {
+        let res = await Api.post(url.getPwdSec, {
+          username: this.model.username
+        });
+        if (res.data && res.data.data) {
+          this.$dialog.alert({
+            title: null,
+            message: `您的秘钥是${res.data.data}`
+          });
+        } else {
+          this.$dialog.alert({
+            title: null,
+            message: `${res.message}`
+          });
+        }
+        this.isCanLookCode = false;
       }
     }
   };

@@ -68,6 +68,11 @@
         type: String
       }
     },
+    provide() {
+      return {
+        formitem: this
+      };
+    },
     data() {
       return {
         prefixCls: prefixCls,
@@ -87,7 +92,6 @@
         this.validateState = val;
       },
       rules() {
-        console.log('11')
         this.setRules();
       }
     },
@@ -121,6 +125,7 @@
           if (path.indexOf(':') !== -1) {
             path = path.replace(/:/, '.');
           }
+          console.log(getPropByPath(model, path).v, 'ww')
           return getPropByPath(model, path).v;
         }
       },

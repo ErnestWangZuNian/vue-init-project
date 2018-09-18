@@ -1,7 +1,7 @@
 <template>
   <div class="entry-order-container">
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh" :disabled="disabled">
-      <ZdScrollcontainer>
+      <ZdScrollcontainer :dataLen="merfloorList.length">
         <ZdItem :title="item.name" v-for="item in merfloorList" :key="item.id" @on-right="deleteItem(item)">
           <van-row slot="content">
             <ZdGrid :data="[[{label:'账号',value:item.name_sn},{label:'冷却时间',value:item.cdtime}], [{label:'日限额',value:item.daylimits},{label:'费率',value:item.rate}],  [{label:'状态',value:item.status ? '已上线' : '已下线'},{label:'是否禁用',value:item.audit ? '已禁用' : '已启用'}]]">
