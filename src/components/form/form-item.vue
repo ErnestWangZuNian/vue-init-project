@@ -85,6 +85,7 @@
     },
     watch: {
       error(val) {
+        console.log(val,'222')
         this.validateMessage = val;
         this.validateState = val === '' ? '' : 'error';
       },
@@ -92,6 +93,7 @@
         this.validateState = val;
       },
       rules() {
+        console.log('222')
         this.setRules();
       }
     },
@@ -148,6 +150,7 @@
     },
     methods: {
       setRules() {
+        console.log('wwznanann')
         let rules = this.getRules();
         if (rules.length) {
           rules.every((rule) => {

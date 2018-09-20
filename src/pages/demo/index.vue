@@ -1,7 +1,12 @@
 <template>
   <Layout>
     <div class="home-container">
-      <ZdNodata></ZdNodata>
+      <Form ref="form" :rules="ruleInline" :model="formInline">
+        <FormItem prop="user"   :rules="ruleInline.user">
+          <van-field v-model="formInline.user" placeholder="请输入用户名" @input="input"/>
+        </FormItem>
+      </Form>
+      <van-button type="primary" @click="handleSubmit">确定</van-button>
     </div>
   </Layout>
 </template>
@@ -20,7 +25,6 @@
       FormItem,
       ZdNodata
     },
-    inject: ['form'],
     mounted() {},
     data: () => {
       return {
@@ -51,10 +55,11 @@
     },
     methods: {
       input(value) {
-        this.formitem.onFieldChange();
+        this.dispatch('FormItem', 'on-form-change', this);
+        console.log(value,'ww')
       },
       handleSubmit(name) {
-        this.$refs[name].validate((valid) => {
+        this.$refs["form"].validate((valid) => {
           if (valid) {
             this.$Message.success('Success!');
           } else {
