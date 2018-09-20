@@ -85,7 +85,6 @@
     },
     watch: {
       error(val) {
-        console.log(val,'222')
         this.validateMessage = val;
         this.validateState = val === '' ? '' : 'error';
       },
@@ -93,7 +92,6 @@
         this.validateState = val;
       },
       rules() {
-        console.log('222')
         this.setRules();
       }
     },
@@ -117,7 +115,7 @@
       //    return parent;
       // },
       fieldValue: {
-        cache: false,
+        // cache: false,
         get() {
           const model = this.form.model;
           if (!model || !this.prop) {
@@ -127,7 +125,7 @@
           if (path.indexOf(':') !== -1) {
             path = path.replace(/:/, '.');
           }
-          console.log(getPropByPath(model, path).v, 'ww')
+          console.log(getPropByPath(model, path).v,'2233')
           return getPropByPath(model, path).v;
         }
       },

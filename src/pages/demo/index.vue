@@ -2,7 +2,7 @@
   <Layout>
     <div class="home-container">
       <Form ref="form" :rules="ruleInline" :model="formInline">
-        <FormItem prop="user"   :rules="ruleInline.user">
+        <FormItem prop="user">
           <van-field v-model="formInline.user" placeholder="请输入用户名" @input="input"/>
         </FormItem>
       </Form>
@@ -55,7 +55,7 @@
     },
     methods: {
       input(value) {
-        this.dispatch('FormItem', 'on-form-change', this);
+        this.dispatch('FormItem', 'on-form-change', this.formInline.user);
         console.log(value,'ww')
       },
       handleSubmit(name) {
