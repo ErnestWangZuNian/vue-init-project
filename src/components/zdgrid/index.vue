@@ -1,7 +1,7 @@
 <template>
   <div class="zd-grid-container">
     <van-row v-for="(item,index) in data" :key="index" class="zd-grid-item">
-      <van-col :span="24/item.length" v-for="(child,childIndex) in item" :key="childIndex">
+      <van-col :span="item.length > 1 ? 24/item.length : 12" v-for="(child,childIndex) in item" :key="childIndex">
         <van-col :span="labelSpan" class="zd-grid-lable">
           {{child.label}}
         </van-col>
