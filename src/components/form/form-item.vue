@@ -12,7 +12,7 @@
 <script>
   import AsyncValidator from 'async-validator';
   import Emitter from '../../mixins/emitter';
-  const prefixCls = 'ivu-form-item';
+  const prefixCls = 'vant-form-item';
   function getPropByPath(obj, path) {
     let tempObj = obj;
     path = path.replace(/\[(\w+)\]/g, '.$1');
@@ -125,7 +125,7 @@
           if (path.indexOf(':') !== -1) {
             path = path.replace(/:/, '.');
           }
-          console.log(getPropByPath(model, path).v,'2233')
+          console.log(getPropByPath(model, path).v, '2233')
           return getPropByPath(model, path).v;
         }
       },
@@ -148,7 +148,6 @@
     },
     methods: {
       setRules() {
-        console.log('wwznanann')
         let rules = this.getRules();
         if (rules.length) {
           rules.every((rule) => {
@@ -227,6 +226,9 @@
         this.validate('change');
       }
     },
+    created() {
+      
+    },
     mounted() {
       if (this.prop) {
         this.dispatch('iForm', 'on-form-item-add', this);
@@ -241,6 +243,6 @@
     }
   };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   @import "./style.scss";
 </style>

@@ -12,8 +12,7 @@
     }
     return false;
   }
-  
-  const prefixCls = 'ivu-form';
+  const prefixCls = 'vant-form';
   export default {
     name: 'iForm',
     props: {

@@ -1,5 +1,7 @@
-.ivu-form {
-  .ivu-form-item-label {
+.vant-form-item{
+  display: flex;
+  margin-bottom: 12px;
+  .vant-form-item-label {
     text-align: right;
     vertical-align: middle;
     float: left;
@@ -9,16 +11,24 @@
     padding: 10px 12px 10px 0;
     box-sizing: border-box;
   }
-  .ivu-form-label-left .ivu-form-item-label {
+  .vant-form-item-content{
+    .zd-filed-container{
+      background: red;
+      .van-cell{
+        padding: 5px 15px!important;
+      }
+    }
+  }
+  .vant-form-label-left .vant-form-item-label {
     text-align: left;
   }
-  .ivu-form-label-top .ivu-form-item-label {
+  .vant-form-label-top .vant-form-item-label {
     float: none;
     display: inline-block;
     padding: 0 0 10px 0;
   }
-  .ivu-form-inline {
-    .ivu-form-item {
+  .vant-form-inline {
+    .vant-form-item {
       display: inline-block;
       margin-right: 10px;
       vertical-align: top;
@@ -26,10 +36,10 @@
   }
 }
 
-.ivu-form-item {
+.vant-form-item {
   margin-bottom: 24px;
   vertical-align: top;
-  .ivu-form-item:after {
+  .vant-form-item:after {
     clear: both;
     content: '.';
     display: block;
@@ -37,7 +47,7 @@
     height: 0;
     visibility: hidden;
   }
-  .ivu-form-item-content {
+  .vant-form-item-content {
     position: relative;
     line-height: 32px;
     font-size: 12px;
@@ -48,7 +58,7 @@
   & & &-content {
     margin-left: 0 !important;
   }
-  .ivu-form-item-error-tip {
+  .vant-form-item-error-tip {
     position: absolute;
     top: 100%;
     left: 0;
@@ -56,8 +66,8 @@
     padding-top: 6px;
     color: red;
   }
-  .ivu-form-item-required {
-    .ivu-form-item-label:before {
+  .vant-form-item-required {
+    .vant-form-item-label:before {
       content: '*';
       display: inline-block;
       margin-right: 4px;
@@ -67,7 +77,7 @@
       color: red;
     }
   }
-  .ivu-form-item-error {
+  .vant-form-item-error {
     // todo
   }
 }
