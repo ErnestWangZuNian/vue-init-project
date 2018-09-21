@@ -1,5 +1,5 @@
 <template>
-  <div class="v-scroll-container" :style="{height:height}">
+  <div class="v-scroll-container" :style="{height:`${height}px`}">
     <div v-if="list" :class="item.active ? 'children-list children-list-active' : 'children-list' " v-for="item in list" :key="item.id" @click="changeChildren(item)">{{item.name}}</div>
     <ZdNodata v-if="dataLen===0"></ZdNodata>
     <slot v-if="list === undefined   ||  !list"></slot>
@@ -18,11 +18,17 @@
       },
       dataLen: {
         type: Number,
+      },
+      height: {
+        type: Number,
+        default: this.defaultHeight,
       }
+    },
+    mounted() {
     },
     data() {
       return {
-        height: this.height || `${Utils.getContentHeight()}px`
+        defaultHeight: `${Utils.getContentHeight()}px`
       }
     },
     methods: {

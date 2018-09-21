@@ -2,9 +2,9 @@
   <Layout>
     <div class="merchant-container">
       <van-nav-bar title="商户列表" left-text="返回" @click-left="back" right-text="新增" @click-right="gotoAdd" left-arrow />
-      <van-search placeholder="请输入商户名称" v-model="searchText" show-action background="#fff" @search="onSearch" />
+      <van-search placeholder="请输入商户名称" v-model="searchText" show-action background="#fff" @search="onSearch" @cancel="onCancel" />
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh" :disabled="disabled">
-        <ZdScrollcontainer :dataLen="merfloorList.length">
+        <ZdScrollcontainer :dataLen="merfloorList.length" :height="height">
           <ZdItem :title="item.name" v-for="item in merfloorList" :key="item.id" @on-right="deleteItem(item)">
             <van-row slot="content">
               <ZdGrid :data="[[{label:'账号',value:item.name_sn},{label:'冷却时间',value:item.cdtime}], [{label:'日限额',value:item.daylimits},{label:'费率',value:item.rate}],  [{label:'状态',value:item.status ? '已上线' : '已下线'},{label:'是否禁用',value:item.audit ? '已禁用' : '已启用'}]]">
@@ -50,7 +50,7 @@
         isLoading: false,
         currentPage: 1,
         disabled: false,
-        height: Utils.getContentHeight()
+        height: Utils.math.sub(Utils.getContentHeight(),40)
       };
     },
     methods: {
@@ -58,18 +58,22 @@
         this.$router.back();
       },
       onSearch() {
-        this.params(this.currentPage, {
-          name: searchText
+        this.getMerfloorList({
+          name: this.searchText
         })
+      },
+      onCancel() {
+        this.getMerfloorList()
       },
       onRefresh() {
         ++this.currentPage;
         this.getMerfloorListByPage(this.currentPage);
       },
-      async getMerfloorList() {
+      async getMerfloorList(params = null) {
         let res = await Api.post(url.merfloorList, {
+          ...params,
           pagesize: 10,
-          user_id: Utils.getUserId()
+          user_id: Utils.getUserId(),
         });
         this.merfloorList = res.data.list;
       },
