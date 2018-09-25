@@ -3,7 +3,10 @@
     <div class="home-container">
       <Form ref="form" :rules="ruleInline" :model="formInline">
         <FormItem prop="user" label="用户名">
-          <ZdField  :value="formInline.user" placeholder="请输入用户名" @input="changeInput"/>
+          <ZdField  v-model="formInline.user" placeholder="请输入用户名" />
+        </FormItem>
+        <FormItem prop="user" label="用户名">
+          <ZdField  v-model="formInline.user" placeholder="请输入用户名" />
         </FormItem>
       </Form>
       <van-button type="primary" @click="handleSubmit">确定</van-button>

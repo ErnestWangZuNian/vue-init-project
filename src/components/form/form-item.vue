@@ -115,7 +115,7 @@
       //    return parent;
       // },
       fieldValue: {
-        // cache: false,
+        cache: false,
         get() {
           const model = this.form.model;
           if (!model || !this.prop) {
@@ -125,7 +125,6 @@
           if (path.indexOf(':') !== -1) {
             path = path.replace(/:/, '.');
           }
-          console.log(getPropByPath(model, path).v, '2233')
           return getPropByPath(model, path).v;
         }
       },
@@ -227,7 +226,6 @@
       }
     },
     created() {
-      
     },
     mounted() {
       if (this.prop) {

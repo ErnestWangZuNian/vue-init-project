@@ -2,17 +2,17 @@
   <div>
     <van-row class="login-container">
       <van-row class="login-content">
-        <Form ref="userform" :model="model" :rules="ruleInline">
+        <Form ref="userform" :model="model" :rules="ruleInline" >
           <FormItem prop="username">
-            <van-field v-model="model.username" left-icon="contact" placeholder="请输入用户名" />
+            <ZdField v-model="model.username" left-icon="contact" placeholder="请输入用户名" />
           </FormItem>
           <FormItem prop="password">
-            <van-field v-model="model.password" type="password" left-icon="clock" placeholder="请输入密码" />
+            <ZdField v-model="model.password" type="password" left-icon="clock" placeholder="请输入密码" />
           </FormItem>
           <FormItem prop="google_code">
-            <van-field v-model="model.google_code" type="text" left-icon="more-o" placeholder="请输入谷歌验证码">
-              <ZdButton slot="button" type="yellow" @click="lookGoogleCode" :disabled="model.username===''"><span class="text">查看谷歌验证码</span></ZdButton>
-            </van-field>
+            <ZdField v-model="model.google_code" type="text" left-icon="more-o" placeholder="请输入谷歌验证码">
+                <van-button slot="button" size="small" type="primary">发送验证码</van-button>
+            </ZdField>
           </FormItem>
         </Form>
         <ZdButton size="large" type="yellow" @click="login">登录</ZdButton>
@@ -24,6 +24,7 @@
   import Emitter from '../../mixins/emitter';
   import Form from "@/components/form";
   import ZdButton from "@/components/zdbutton";
+  import ZdField from '@/components/zdfield';
   import url from "./api.actions.js";
   const FormItem = Form.Item;
   let currentPage = 1;
@@ -31,7 +32,8 @@
     components: {
       Form,
       FormItem,
-      ZdButton
+      ZdButton,
+      ZdField,
     },
     mixins: [Emitter],
     mounted() {},
@@ -90,6 +92,6 @@
     }
   };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   @import "./style.scss";
 </style>

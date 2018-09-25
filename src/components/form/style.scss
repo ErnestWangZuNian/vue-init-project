@@ -1,21 +1,24 @@
-.vant-form-item{
+.vant-form-item {
   display: flex;
   margin-bottom: 12px;
+  border-bottom:1px solid #f5f5f5;
   .vant-form-item-label {
-    text-align: right;
+    text-align: left;
     vertical-align: middle;
-    float: left;
     font-size: 14px;
     color: #333;
     line-height: 1;
     padding: 10px 12px 10px 0;
     box-sizing: border-box;
+    width: 80px;
   }
-  .vant-form-item-content{
-    .zd-filed-container{
-      background: red;
-      .van-cell{
-        padding: 5px 15px!important;
+  .vant-form-item-content {
+    position: relative;
+    width: 100%;
+    margin-left: 0!important;
+    .zd-filed-container {
+      .van-cell {
+        padding: 5px 0px !important;
       }
     }
   }
@@ -34,50 +37,22 @@
       vertical-align: top;
     }
   }
-}
-
-.vant-form-item {
-  margin-bottom: 24px;
-  vertical-align: top;
-  .vant-form-item:after {
-    clear: both;
-    content: '.';
-    display: block;
-    width: 0;
-    height: 0;
-    visibility: hidden;
-  }
-  .vant-form-item-content {
-    position: relative;
-    line-height: 32px;
-    font-size: 12px;
-  }
-  & & {
-    margin-bottom: 0;
-  }
-  & & &-content {
-    margin-left: 0 !important;
-  }
   .vant-form-item-error-tip {
     position: absolute;
     top: 100%;
     left: 0;
     line-height: 1;
-    padding-top: 6px;
     color: red;
   }
-  .vant-form-item-required {
-    .vant-form-item-label:before {
-      content: '*';
-      display: inline-block;
-      margin-right: 4px;
-      line-height: 1;
-      font-family: SimSun;
-      font-size: 14px;
-      color: red;
-    }
-  }
-  .vant-form-item-error {
-    // todo
+}
+.vant-form-item-required {
+  .vant-form-item-label:before {
+    content: "*";
+    display: inline-block;
+    margin-right: 4px;
+    line-height: 1;
+    font-family: SimSun;
+    font-size: 14px;
+    color: red;
   }
 }
