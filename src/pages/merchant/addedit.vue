@@ -147,7 +147,7 @@
                 this.$refs["form"].validate(async(valid) => {
                     if (valid) {
                         let status = this.model.status ? 1 : 0;
-                        let res = await Api.post(url.merfloorEdit,{ ...this.model,
+                        let res = await Api.post(url.merfloorEdit, { ...this.model,
                             status
                         });
                         this.$router.push("/merchant")

@@ -1,7 +1,7 @@
 <template>
   <div class="zd-filed-container">
     <van-field v-bind="$attrs" v-on="$listeners" :value="valueClone" @blur="blur">
-     <slot></slot>
+      <div slot="button"><slot name="button"></slot></div>
     </van-field>
   </div>
 </template>

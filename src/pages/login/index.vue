@@ -2,7 +2,7 @@
   <div>
     <van-row class="login-container">
       <van-row class="login-content">
-        <Form ref="userform" :model="model" :rules="ruleInline" >
+        <Form ref="userform" :model="model" :rules="rules">
           <FormItem prop="username">
             <ZdField v-model="model.username" left-icon="contact" placeholder="请输入用户名" />
           </FormItem>
@@ -11,7 +11,7 @@
           </FormItem>
           <FormItem prop="google_code">
             <ZdField v-model="model.google_code" type="text" left-icon="more-o" placeholder="请输入谷歌验证码">
-                <van-button slot="button" size="small" type="primary">发送验证码</van-button>
+              <ZdButton slot="button" type="yellow" @click="lookGoogleCode" :disabled="model.username===''"><span class="text">查看谷歌验证码</span></ZdButton>
             </ZdField>
           </FormItem>
         </Form>
@@ -44,7 +44,7 @@
           password: '',
           google_code: ''
         },
-        ruleInline: {
+        rules: {
           username: [{
             required: true,
             message: '请输入用户名'
