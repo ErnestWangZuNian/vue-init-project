@@ -1,11 +1,11 @@
+@import "../../assets/style/mixins/index";
 .merchant-container {
   .merchant-list {
     margin-bottom: 0.1rem;
   }
 }
 .merchant-add-container {
-  background: #fff;
-  min-height: 100vh;
+  @include page-container-size;
   .add-content {
     padding: 0 20px;
   }

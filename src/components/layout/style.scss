@@ -1,6 +1,7 @@
+@import "../../assets/style/custom.scss";
 .layout-container{
   width: 100%;
   .van-tabbar-item--active{
-    color: #cc9933;
+    color: $primary-color;
   }
 }

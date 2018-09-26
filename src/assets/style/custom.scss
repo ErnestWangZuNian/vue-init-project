@@ -1,0 +1,32 @@
+// Prefix
+$css-prefix: vant-;
+$css-prefix-iconfont: vant-icon;
+$form-prefix: vant-form;
+$form-item-prefix: vant-form-item;
+// color
+$primary-color: #cc9933;
+$error-color: #ed4014;
+$success-color: #19be6b;
+$normal-color: #f5f5f5;
+$write-color: #fff;
+$info-color: #333;
+$base-color: #999;
+$gray-color:#ddd;
+// base
+$body-background: $write-color;
+$font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+  "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+$title-color: $primary-color;
+$text-color: $base-color;
+$font-size-base: 14px;
+$font-size-small: 12px;
+$font-size-large: 16px;
+$line-height-base: 1.5;
+// margin
+$margin-left-base: 10px;
+$margin-right-base: 10px;
+$margin-top-base: 10px;
+$margin-bottom-base: 10px;
+// border
+$border-primary: 1px solid $primary-color;
+$border-normal: 1px solid $gray-color;

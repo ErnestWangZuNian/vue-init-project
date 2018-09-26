@@ -1,18 +1,19 @@
+@import "../../assets/style/custom.scss";
+@import "../../assets/style/mixins/index";
 .home-container {
-  height: 100vh;
-  background: #fff;
+  @include page-container-size;
   .info-container {
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #cc9933;
+    background: $primary-color;
     .list {
       display: flex;
       justify-content: center;
     }
     .title {
-      color: #f44;
+      color: $error-color;
       margin-bottom: 20px;
       font-size: 18px;
     }

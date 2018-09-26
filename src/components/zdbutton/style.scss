@@ -1,12 +1,13 @@
+@import "../../assets/style/custom.scss";
 .van-button {
   border-radius: 10px;
   line-height: 24px;
   height: 26px;
 }
 .van-button--yellow {
-  color: #fff;
-  border: 1px solid #cc9933;
-  background-color: #cc9933;
+  color: $write-color;
+  border: $border-primary;
+  background-color: $primary-color;
 }
 .van-button--large {
   border-radius: 12px;

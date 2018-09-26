@@ -1,3 +1,4 @@
+@import "../../assets/style/custom.scss";
 .component-icon-text {
   .van-icon {
     display: block;
@@ -9,5 +10,5 @@
 }
 
 .border-right {
-  border-right: 1px solid #ddd;
+  border-right: $border-normal;
 }

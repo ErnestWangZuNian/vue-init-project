@@ -1,10 +1,8 @@
+@import "../../assets/style/mixins/index";
 .order-container {
-  height: 100vh;
-  background: #fff;
+  @include page-container-size;
 }
-.cash-order-container{
-  
+.cash-order-container {
 }
-.entry-order-container{
-
+.entry-order-container {
 }

@@ -1,18 +1,19 @@
-.vant-form-item {
+@import "../../assets/style/custom.scss";
+.#{$form-item-prefix}{
   display: flex;
   margin-bottom: 12px;
   border-bottom:1px solid #f5f5f5;
-  .vant-form-item-label {
+  .#{$form-item-prefix}-label {
     text-align: left;
     vertical-align: middle;
-    font-size: 14px;
-    color: #333;
+    font-size: $font-size-base;
+    color: $info-color;
     line-height: 1;
     padding: 10px 12px 10px 0;
     box-sizing: border-box;
     width: 80px;
   }
-  .vant-form-item-content {
+  .#{$form-item-prefix}-content {
     position: relative;
     width: 100%;
     margin-left: 0!important;
@@ -30,29 +31,22 @@
     display: inline-block;
     padding: 0 0 10px 0;
   }
-  .vant-form-inline {
-    .vant-form-item {
-      display: inline-block;
-      margin-right: 10px;
-      vertical-align: top;
-    }
-  }
-  .vant-form-item-error-tip {
+  .#{$form-item-prefix}-error-tip {
     position: absolute;
     top: 100%;
     left: 0;
     line-height: 1;
-    color: red;
+    color: $error-color;
   }
 }
-.vant-form-item-required {
-  .vant-form-item-label:before {
+.#{$form-item-prefix}-required {
+  .#{$form-item-prefix}-label:before {
     content: "*";
     display: inline-block;
     margin-right: 4px;
     line-height: 1;
     font-family: SimSun;
     font-size: 14px;
-    color: red;
+    color: $error-color;
   }
 }

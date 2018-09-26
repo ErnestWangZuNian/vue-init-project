@@ -1,16 +1,16 @@
+@import "../../assets/style/custom.scss";
 .v-scroll-container {
   overflow: hidden;
   overflow-y: scroll;
-  font-size: 14px;
   .children-list {
     background: #f3f3f3;
-    padding: .2rem;
-    height: 1rem;
+    padding: 20px;
+    height:100px;
     text-align: center;
-    line-height: 1rem;
+    line-height: 100px;
   }
   .children-list-active {
-    background: #fff;
-    color: red;
+    background: $write-color;
+    color: $error-color;
   }
 }

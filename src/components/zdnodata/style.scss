@@ -1,14 +1,15 @@
+@import "../../assets/style/custom.scss";
 .no-data-container {
   display: flex;
   justify-content: center;
   padding-top: 60px;
   .content {
     width: 60%;
-    .text{
+    .text {
       display: flex;
       justify-content: center;
-      color: #666;
-      font-size: 16px;
+      color: $base-color;
+      font-size: $font-size-large;
       margin-top: 10px;
     }
     img {

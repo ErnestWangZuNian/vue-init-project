@@ -1,33 +1,33 @@
+@import "../../assets/style/custom.scss";
+@import "../../assets/style/mixins/index";
 .login-container {
-  width: 100%;
+  @include page-container-size;
   display: flex;
   justify-content: center;
   padding: 160px 0px;
   background-image: url("../../assets/images/loginbg.jpg");
   background-size: cover;
   background-position: 50%;
-  height: 100vh;
-  .vant-form-item {
-    border-bottom: 1px solid #cc9933;
-    margin-bottom: 18px;
-    .vant-form-item-error-tip {
+  .#{$form-item-prefix} {
+    border-bottom: $border-primary;
+    margin-bottom: 24px;
+    .#{$form-item-prefix}-error-tip {
       padding-top: 6px;
     }
-  }
-  .vant-form-item-content {
-    .zd-filed-container {
-      .van-cell {
-        background-color: transparent;
-        color: #cc9933;
-        border: none;
-        border-bottom: none;
-        .text {
-          color: #fff;
+    .#{$form-item-prefix}-content {
+      .zd-filed-container {
+        .van-cell {
+          background-color: transparent;
+          color: $primary-color;
+          border: none;
+          border-bottom: none;
+          .text {
+            color: #fff;
+          }
         }
       }
     }
   }
-
   .login-content {
     width: 86%;
   }

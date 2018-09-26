@@ -1,24 +1,24 @@
+@import "../../assets/style/custom.scss";
 .zd-item-container {
-  background: #fff;
+  background: $write-color;
   min-height: 2rem;
-  color: #666;
+  color: $base-color;
   margin-bottom: 0.2rem;
   .title {
-    font-size: 14px;
-    color: #cc9933;
+    color: $primary-color;
     padding: 0.1rem 0.2rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: $border-normal;
     .right {
       text-align: right;
     }
   }
-  .content{
-    padding:0.1rem 0.2rem;
-    border-bottom: 1px solid #ddd;
+  .content {
+    padding: 0.1rem 0.2rem;
+    border-bottom: $border-normal;
   }
-  .footer{
-   display: flex;
-   justify-content: flex-end;
-   padding:0.1rem 0.2rem;
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.1rem 0.2rem;
   }
 }

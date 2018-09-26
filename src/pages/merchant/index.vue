@@ -88,7 +88,7 @@
           this.isLoading = false;
           this.merfloorList = res.data.list.concat(this.merfloorList);
           this.$toast({
-            message: '已为您更新了10条数据!',
+            message: `已为您更新了${res.data.list.length}条数据!`,
             position: 'top'
           });
         } else {
